@@ -65,6 +65,7 @@ export default async function sign(privateKeyPath: string, updateContentsPath: s
   return new Promise<void>((resolve, reject) => {
     jwt.sign(claims, privateKey, { algorithm: "RS256" }, async (err: Error, signedJwt: string) => {
       if (err) {
+        console.log("Signing Error", err);
         reject(new Error("The specified signing key file was not valid"));
       }
 
